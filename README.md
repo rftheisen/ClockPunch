@@ -9,6 +9,10 @@ There is still a lot of work to do with ClockPunch. If you would like to contrib
 
 - Stronger authentication
 - Support for Active Directory, Entra ID and other identify services on-prem and cloud-based
+- Export button to allow data to be exported in multiple formats
+- Gamified UI
 - Documentation to help less technical users setup ClockPunch in their environments
+- Any new ideas! Feel free to study and experiment with ClockPunch, you may get new ideas I never thought of.
+  
 
 If you contribute to ClockPunch in anyway, I will gladly be a reference for you in your job search. 
