@@ -28,6 +28,12 @@ Install the required packages: flask and sqlalchemy
 pip install flask flask-sqlalchemy
 ```
 
+Create a directory called templates for the dashboard and login page of the application. 
+```
+mkdir templates
+```
+Make sure dashboard.html and login.html are in the templates directory. 
+
 ## Theres still work to do....
 
 There is still some work to do with ClockPunch. If you would like to contribute for learning purposes or just out of the kindness of your heart, here are a few things I need help with building: 
