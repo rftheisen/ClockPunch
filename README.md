@@ -3,6 +3,31 @@ An application that lets you clock in and track time.
 
 There are a surprising number of organizations out there still tracking employee time using paper and pencil. This application is for those organizations to have an easier way to do it, for free. 
 
+## How to setup and run ClockPunch in a Development Environment
+
+Ensure that the Python3 virtual environment is installed. 
+
+```
+sudo apt install python3-venv
+```
+Create a new directory for the project. 
+```
+mkdir clockpunch
+cd clockpunch
+```
+Create the python virtual environment
+```
+python3 -m venv venv
+```
+Activate the python virtual environment. 
+```
+source venv/bin/activate
+```
+Install the required packages: flask and sqlalchemy
+```
+pip install flask flask-sqlalchemy
+```
+
 ## Theres still work to do....
 
 There is still a lot of work to do with ClockPunch. If you would like to contribute for learning purposes or just out of the kindness of your heart, here are a few things I need help with building: 
