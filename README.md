@@ -30,7 +30,7 @@ pip install flask flask-sqlalchemy
 
 ## Theres still work to do....
 
-There is still a lot of work to do with ClockPunch. If you would like to contribute for learning purposes or just out of the kindness of your heart, here are a few things I need help with building: 
+There is still some work to do with ClockPunch. If you would like to contribute for learning purposes or just out of the kindness of your heart, here are a few things I need help with building: 
 
 - Stronger authentication
 - Support for Active Directory, Entra ID and other identify services on-prem and cloud-based
