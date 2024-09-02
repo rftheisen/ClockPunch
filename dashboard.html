@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Clock-in System</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        button { padding: 10px; margin: 5px; background-color: #4CAF50; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% if not user.is_manager %}
+        <form method="POST" action="{{ url_for('clock_in') }}">
+            <button type="submit">Clock In</button>
+        </form>
+        <form method="POST" action="{{ url_for('clock_out') }}">
+            <button type="submit">Clock Out</button>
+        </form>
+    {% endif %}
+    <h2>Time Records</h2>
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Clock In</th>
+            <th>Clock Out</th>
+            <th>Duration</th>
+        </tr>
+        {% for record in records %}
+            <tr>
+                <td>{{ record.user_id }}</td>
+                <td>{{ record.clock_in.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>{{ record.clock_out.strftime('%Y-%m-%d %H:%M:%S') if record.clock_out else 'Not clocked out' }}</td>
+                <td>
+                    {% if record.clock_out %}
+                        {{ (record.clock_out - record.clock_in).total_seconds() // 3600 }} hours
+                        {{ ((record.clock_out - record.clock_in).total_seconds() % 3600) // 60 }} minutes
+                    {% else %}
+                        In progress
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
